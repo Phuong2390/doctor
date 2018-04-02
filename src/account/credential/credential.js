@@ -19,6 +19,16 @@ class Credential {
 		this.id = id;
 		return this;
 	}
+	
+	/**
+	 *
+	 * @param password
+	 * @return {Credential}
+	 */
+	setPassword(password) {
+		this.password = password;
+		return this;
+	}
 
     /**
 	 *

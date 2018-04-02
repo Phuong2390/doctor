@@ -30,6 +30,10 @@ class CredentialRepo {
 			deleted_at: null
 		})
 	}
-	
+	deleted(id) {
+		return this.connection('credentials').where({
+			id: id
+		}).del();
+	}
 }
 module.exports = CredentialRepo;
