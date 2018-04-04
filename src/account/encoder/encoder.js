@@ -19,7 +19,7 @@ class Encoder {
     /**
 	 *
      * @param {string} pass
-     * @return {*|PromiseLike<T>|Promise<T>}
+     * @return {*|PromiseLike<void>|Promise<void>}
      */
 	hash(pass) {
 		return bcrypt.hash(pass, this.saltRounds).then(pass => {

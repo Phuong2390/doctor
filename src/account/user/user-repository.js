@@ -1,4 +1,4 @@
-class UserRepo {
+class UserRepository {
 	/**
 	 *
 	 * @param {Connection} connection
@@ -42,4 +42,4 @@ class UserRepo {
 	}
 	
 }
-module.exports = UserRepo;
+module.exports = UserRepository;

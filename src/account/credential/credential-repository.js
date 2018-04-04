@@ -1,4 +1,4 @@
-class CredentialRepo {
+class CredentialRepository {
 	/**
 	 *
 	 * @param {Connection} connection
@@ -32,4 +32,4 @@ class CredentialRepo {
 	}
 	
 }
-module.exports = CredentialRepo;
+module.exports = CredentialRepository;
