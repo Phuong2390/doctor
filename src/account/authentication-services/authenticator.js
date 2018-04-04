@@ -4,14 +4,14 @@ class Authenticator {
 		this.credentialRepo = credentialRepo;
 	}
 	logIn (credential) {
-		return this.credentialRepo.findByEmail(credential.email).then(credentialDB => {
+		return this.credentialRepo.findByEmail(credential.getEmail()).then(credentialDB => {
 			if (!credentialDB[0]){
-				throw new Error('Account khong ton tai');
+				throw new Error('Account does not exist');
 			}
-			return this.encoder.compare(credential.password, credentialDB[0].password);
+			return this.encoder.compare(credential.getPassword(), credentialDB[0].password);
 		}).then((isLogin) => {
-			if(!isLogin) throw new Error("Password sai");
-			return 'login!';
+			if(!isLogin) throw new Error("Wrong Password ");
+			return credential;
 		})
 	}
 }
