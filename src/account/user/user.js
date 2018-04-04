@@ -85,6 +85,14 @@ class User {
     getCredentialId() {
 		return this.credential_id;
 	}
+
+    /**
+	 *
+     * @returns {string}
+     */
+	getUserName() {
+    	return this.first_name + ' ' + this.last_name;
+	}
 }
 
 module.exports = User;

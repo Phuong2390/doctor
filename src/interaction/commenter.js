@@ -35,6 +35,24 @@ class Commenter {
     getContent() {
         return this.content;
     }
+
+    /**
+     *
+     * @param {int} id
+     * @returns {Commenter}
+     */
+    setId(id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     *
+     * @returns {int|*}
+     */
+    getId() {
+        return this.id;
+    }
 }
 
 module.exports = Commenter;

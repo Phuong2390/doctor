@@ -25,6 +25,24 @@ class Interaction {
     getRaters() {
         return this.raters;
     }
+
+    /**
+     *
+     * @param {int} id
+     * @returns {Interaction}
+     */
+    setId(id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     *
+     * @returns {int|*}
+     */
+    getId() {
+        return this.id;
+    }
 }
 
 module.exports = Interaction;

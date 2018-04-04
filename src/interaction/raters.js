@@ -4,24 +4,54 @@ class Raters {
      *
      * @param {User} user
      * @param {Hospital} hospital
-     * @param {INT} rate
+     * @param {INT} score
      */
-    constructor(user, hospital, rate) {
+    constructor(user, hospital, score) {
         this.user = user;
-        this.rate = rate;
+        this.score = score;
         this.hospital = hospital;
     }
 
+    /**
+     *
+     * @returns {User|*}
+     */
     getUser() {
         return this.user;
     }
 
+    /**
+     *
+     * @returns {Hospital|*}
+     */
     getHospital() {
         return this.hospital;
     }
 
-    getRate() {
-        return this.rate;
+    /**
+     *
+     * @returns {INT|*}
+     */
+    getScore() {
+        return this.score;
+    }
+
+    /**
+     *
+     * @param {int} id
+     * @returns {Raters}
+     */
+    setId(id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     *
+     * @returns {int|*}
+     */
+    getId() {
+        return this.id;
     }
 }
 
