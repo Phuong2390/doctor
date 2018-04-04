@@ -55,6 +55,18 @@ class InteractionRepository {
 
         return Promise.all([comment, rate]);
     }
+
+    remove(id) {
+        let comment = this.connection('comments').update({
+            deleted_at: new Date().toLocaleString()
+        }).where({id: id});
+
+        let rate = this.connection('rates').update({
+            deleted_at: new Date().toLocaleString()
+        }).where({id: id});
+
+        return Promise.all([comment, rate]);
+    }
 }
 
 module.exports = InteractionRepository;
