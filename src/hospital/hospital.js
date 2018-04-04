@@ -4,7 +4,7 @@ class Hospital {
 	 * @param {string} name
 	 * @param {INT} location_id
 	 */
-	constructor(name, location_id) {
+	constructor (name, location_id) {
 		this.name = name;
 		this.location_id = location_id;
 	}
@@ -13,7 +13,7 @@ class Hospital {
 	 *
 	 * @return {string}
 	 */
-	getName() {
+	getName () {
 		return this.name;
 	}
 	
@@ -21,65 +21,40 @@ class Hospital {
 	 *
 	 * @return {Location}
 	 */
-	getLocation_id() {
+	getLocation_id () {
 		return this.location_id;
 	}
-
-    /**
+	
+	/**
 	 *
-     * @return {string}
-     */
-	getPhone() {
+	 * @return {string}
+	 */
+	getPhone () {
 		return this.phone;
-	}
-
-    /**
-	 *
-     * @return {string}
-     */
-	getDescribe() {
-		return this.describe;
 	}
 	
 	/**
 	 *
 	 * @return {INT}
 	 */
-	getId() {
+	getId () {
 		return this.id;
 	}
-
-    /**
+	
+	/**
 	 *
-     * @param {INT} id
-     */
-	setId(id) {
+	 * @param {INT} id
+	 */
+	setId (id) {
 		this.id = id;
 	}
-
-    /**
+	
+	/**
 	 *
-     * @param {INT} location_id
-     */
-	setLocation_id(location_id) {
+	 * @param {INT} location_id
+	 */
+	setLocation_id (location_id) {
 		this.location_id = location_id;
 	}
-
-    /**
-	 *
-     * @param {string} phone
-     */
-	setPhone(phone) {
-		this.phone = phone;
-	}
-
-    /**
-	 *
-     * @param {string} describe
-     */
-	setDescribe(describe) {
-		this.describe = describe;
-	}
-	
 }
 module.exports = Hospital;

@@ -5,10 +5,10 @@ const Encoder = require('./src/account/encoder-services/encoder');
 const Register = require('./src/account/register-services/register');
 const User = require('./src/account/user/user');
 const UserRepo = require('./src/account/user/user-repository');
-
+const Authentication = require('./src/account/authentication-services/authenticator');
 let credential = new Credential('admin','123456');
 let encoder = new Encoder();
-let register = new Register(encoder, new CredentialRepo(connection), new UserRepo(connection));
-register.signUp(credential, new User()).then(function () {
-	console.log ('ca');
+let authentication = new Authentication(encoder, new CredentialRepo(connection));
+authentication.logIn(credential).then(()=> {
+	console.log ('ok');
 });
