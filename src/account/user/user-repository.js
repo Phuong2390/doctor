@@ -37,8 +37,15 @@ class UserRepository {
 		});
 	}
 
-	getByCredential_Id(cre) {
-
+    /**
+	 *
+     * @param {Credential} credential
+     * @returns {*}
+     */
+	getByCredentialId(credential) {
+		return this.connection('users').where({
+			credential_id: credential.getId()
+		})
 	}
 	
 }
