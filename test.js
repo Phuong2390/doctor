@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const connection = require('./database/connection');
 const Credential = require('./src/account/credential/credential');
 const CredentialRepo = require('./src/account/credential/credential-repository');
@@ -12,3 +13,5 @@ let authentication = new Authentication(encoder, new CredentialRepo(connection))
 authentication.logIn(credential).then(()=> {
 	console.log ('ok');
 });
+=======
+>>>>>>> Stashed changes
