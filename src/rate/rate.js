@@ -4,11 +4,9 @@ class Raters {
      *
      * @param {User} user
      * @param {Hospital} hospital
-     * @param {INT} score
      */
-    constructor(user, hospital, score) {
+    constructor(user, hospital) {
         this.user = user;
-        this.score = score;
         this.hospital = hospital;
     }
 
@@ -30,6 +28,16 @@ class Raters {
 
     /**
      *
+     * @param {String} score
+     * @returns {Raters}
+     */
+    setScore(score) {
+        this.score = score;
+        return this;
+    }
+
+    /**
+     *
      * @returns {INT|*}
      */
     getScore() {
@@ -38,7 +46,7 @@ class Raters {
 
     /**
      *
-     * @param {int} id
+     * @param {String} id
      * @returns {Raters}
      */
     setId(id) {
@@ -48,10 +56,28 @@ class Raters {
 
     /**
      *
-     * @returns {int|*}
+     * @returns {INT|*}
      */
     getId() {
         return this.id;
+    }
+
+    /**
+     *
+     * @param {String} content
+     * @returns {Raters}
+     */
+    setContent(content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     *
+     * @returns {String|*}
+     */
+    getContent() {
+        return this.content;
     }
 }
 
