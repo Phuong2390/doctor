@@ -14,7 +14,7 @@ class KeywordSearchCondition {
      * @returns {Promise <void>}
      */
     describe(sqlQuery) {
-        return sqlQuery.where('name', 'like', '%' + this.keyword + '%')
+        return sqlQuery.orderBy('id', 'asc').where('name', 'like', '%' + this.keyword + '%')
             .where({'hospitals.deleted_at': null})
     }
 }
