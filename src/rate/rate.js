@@ -1,4 +1,4 @@
-class Raters {
+class Rate {
 
     /**
      *
@@ -29,7 +29,7 @@ class Raters {
     /**
      *
      * @param {String} score
-     * @returns {Raters}
+     * @returns {Rate}
      */
     setScore(score) {
         this.score = score;
@@ -47,7 +47,7 @@ class Raters {
     /**
      *
      * @param {String} id
-     * @returns {Raters}
+     * @returns {Rate}
      */
     setId(id) {
         this.id = id;
@@ -65,7 +65,7 @@ class Raters {
     /**
      *
      * @param {String} content
-     * @returns {Raters}
+     * @returns {Rate}
      */
     setContent(content) {
         this.content = content;
@@ -81,4 +81,4 @@ class Raters {
     }
 }
 
-module.exports = Raters;
+module.exports = Rate;
