@@ -28,7 +28,7 @@ class Rate {
 
     /**
      *
-     * @param {String} score
+     * @param {INT} score
      * @returns {Rate}
      */
     setScore(score) {

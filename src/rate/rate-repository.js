@@ -24,8 +24,10 @@ class Rate {
         }).then(() => {
             this.connection('rates').avg('score as avgRate').where({
                 hospital_id: rate.getHospital().getId()
-            }).then((result) => {
-                return this.connection('hospitals').update(result[0])
+            }).then((rateAvg) => {
+                return this.connection('hospitals').update(rateAvg[0]).where({
+                    id: rate.getHospital().getId()
+                })
             })
         });
     }

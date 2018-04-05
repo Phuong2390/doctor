@@ -15,9 +15,7 @@ class HospitalRepo {
 	add(hospital) {
 		return this.connection('hospitals').insert({
 			name: hospital.getName(),
-			location_id: hospital.getLocation_id(),
-			phone : hospital.getPhone(),
-			describe: hospital.getDescribe()
+			location_id: hospital.getLocation_id()
 		});
 	}
 	/**
@@ -28,9 +26,7 @@ class HospitalRepo {
 	edit(hospital) {
 		return this.connection('hospitals').update({
 			name: hospital.getName(),
-			location_id: hospital.getLocation_id(),
-			phone : hospital.getPhone(),
-			describe: hospital.getDescribe()
+			location_id: hospital.getLocation_id()
 		}).where({
 			id: hospital.getId()
 		});
