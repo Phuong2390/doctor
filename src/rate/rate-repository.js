@@ -20,7 +20,8 @@ class Rate {
             user_id: rate.getUser().getId(),
             user_name: rate.getUser().getUserName(),
             score: rate.getScore(),
-            content: rate.getContent()
+            content: rate.getContent(),
+            time: new Date().toLocaleString()
         }).then(() => {
             this.connection('rates').avg('score as avgRate').where({
                 hospital_id: rate.getHospital().getId()
@@ -44,19 +45,49 @@ class Rate {
             user_id: rate.getUser().getId(),
             user_name: rate.getUser().getUserName(),
             score: rate.getScore(),
-            content: rate.getContent()
-        }).where({id: rate.getId()});
+            content: rate.getContent(),
+            time: new Date().toLocaleString()
+        }).where({id: rate.getId()}).then(() => {
+            this.connection('rates').avg('score as avgRate').where({
+                hospital_id: rate.getHospital().getId()
+            }).then((rateAvg) => {
+                return this.connection('hospitals').update(rateAvg[0]).where({
+                    id: rate.getHospital().getId()
+                })
+            })
+        });
     }
 
     /**
      *
-     * @param {INT} id
+     * @param {Rate} rate
      * @returns {Promise <void>}
      */
-    remove(id) {
+    remove(rate) {
         return this.connection('rates').update({
             deleted_at: new Date().toLocaleString()
-        }).where({id: id});
+        }).where({id: rate.getId()}).then(() => {
+            this.connection('rates').avg('score as avgRate').where({
+                hospital_id: rate.getHospital().getId()
+            }).then((rateAvg) => {
+                return this.connection('hospitals').update(rateAvg[0]).where({
+                    id: rate.getHospital().getId()
+                })
+            })
+        });
+    }
+
+    /**
+     *
+     * @param {Hospital} hospital
+     * @returns {Promise <void>}
+     */
+    searchByHospital(hospital) {
+        return this.connection('rates').where({
+            hospital_id: hospital.getId(),
+            hospital_name: hospital.getName(),
+            deleted_at: null
+        })
     }
 }
 

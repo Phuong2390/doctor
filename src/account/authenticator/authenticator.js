@@ -24,7 +24,7 @@ class Authenticator {
             })
             .then((isLogin) => {
                 if (!isLogin) throw new Error("Password fail");
-                return credential;
+                return credential.getId();
             })
     }
 
