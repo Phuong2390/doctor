@@ -1,3 +1,4 @@
+/*
 const RateRepository = require('./src/rate/rate-repository');
 const connection = require('./database/connection');
 const Rate = require('./src/rate/rate');
@@ -11,11 +12,6 @@ const Credential = require('./src/account/credential/credential');
 const Searcher = require('./src/search-services/searcher');
 const TopRateSearchCondition = require('./src/search-services/top-rate-search-condition');
 const KeywordSearchCondition = require('./src/search-services/keyword-search-condition');
-
-let searcher = new Searcher(connection);
-
-let topSearch = new TopRateSearchCondition(2);
-
-searcher.search(topSearch).then(function (result) {
-    console.log(result);
-});
+const UndeletedSearchCondition = require('./src/search-services/undeleted-search-condition');
+const Location = require('./src/location/location');
+*/
