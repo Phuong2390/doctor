@@ -13,9 +13,17 @@ class HospitalRepo {
 	 * @return {Promise <void>}
 	 */
 	add(hospital) {
-		return this.connection('hospitals').insert({
-			name: hospital.getName(),
-			location_id: hospital.getLocation_id()
+		return this.connection('locations').insert({
+			lat: hospital.getLocation().getLat(),
+			long: hospital.getLocation().getLong(),
+			address: hospital.getLocation().getAddress()
+		}).then((locationId) => {
+			hospital.getLocation().setId(locationId);
+			return this.connection('hospitals').insert({
+				name: hospital.getName(),
+				location_id: hospital.getLocation().getId(),
+				avgRate: 0
+			})
 		});
 	}
 	/**
@@ -24,7 +32,7 @@ class HospitalRepo {
 	 * @return {Promise <void>}
 	 */
 	edit(hospital) {
-		return this.connection('hospitals').update({
+		return this.connection('locations').update({
 			name: hospital.getName(),
 			location_id: hospital.getLocation_id()
 		}).where({
