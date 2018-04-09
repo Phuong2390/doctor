@@ -53,6 +53,29 @@ class Hospital {
 		this.location = location;
 		return this;
 	}
+
+    /**
+	 *
+     * @param {number}avgRate
+     * @return {Hospital}
+     */
+	setAvgRate(avgRate) {
+		this.avgRate = avgRate;
+		return this;
+	}
+
+	getAvgRate() {
+		return this.avgRate;
+	}
+
+	hospitalJson() {
+		return {
+			id: this.getId(),
+			name: this.getName(),
+			avgRate: this.getAvgRate(),
+			location: this.getLocation()
+		}
+	}
 	
 }
 module.exports = Hospital;

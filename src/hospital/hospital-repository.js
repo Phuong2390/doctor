@@ -53,4 +53,5 @@ class HospitalRepo {
 		});
 	}
 }
+
 module.exports = HospitalRepo;
