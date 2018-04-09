@@ -3,9 +3,11 @@ class Searcher {
     /**
      *
      * @param {connection} connection
+     * @param {HospitalFactory} hospitalFactory
      */
-    constructor(connection) {
+    constructor(connection, hospitalFactory) {
         this.connection = connection;
+        this.hospitalFactory = hospitalFactory;
     }
 
     search(condition) {
@@ -15,7 +17,7 @@ class Searcher {
                 this.on('location_id', '=', 'locations.id')
             });
         condition.describe(sqlQuery);
-        return sqlQuery;
+        return sqlQuery.then(listHospitalRaw => listHospitalRaw.map(hospitalRaw => this.hospitalFactory.make(hospitalRaw)));
     }
 }
 

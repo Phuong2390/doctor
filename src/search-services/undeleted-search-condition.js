@@ -2,14 +2,6 @@ class UndeletedSearchCondition {
 
     /**
      *
-     * @param {string} keyword
-     */
-    constructor(keyword) {
-        this.keyword = keyword;
-    }
-
-    /**
-     *
      * @param sqlQuery
      * @returns {Promise <void>}
      */
