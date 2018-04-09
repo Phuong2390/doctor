@@ -8,7 +8,7 @@ class HospitalController {
      */
     search(request, response, next) {
         request.app.get('hospitalSearcher').search(request.codition)
-            .then((hospitalList) => response.status(200).send(hospitalList))
+            .then((hospitalList) => response.status(200).send(hospitalList.map(hospital => hospital.hospitalJson())))
             .catch(next);
     }
 

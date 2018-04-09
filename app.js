@@ -10,6 +10,7 @@ const HospitalSearcher = require('./src/search-services/searcher');
 
 const indexRouter = require('./routes/index');
 const hospitalRouter = require('./routes/hospital');
+const HospitalFactory = require('./src/hospital/hospital-factory');
 
 let app = express();
 
@@ -17,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.set('hospitalRepo', new HospitalRepository(connection));
-app.set('hospitalSearcher', new HospitalSearcher(connection));
+app.set('hospitalSearcher', new HospitalSearcher(connection, new HospitalFactory()));
 
 app.use(logger('dev'));
 app.use(express.json());
