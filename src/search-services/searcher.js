@@ -13,7 +13,7 @@ class Searcher {
             .from('hospitals')
             .innerJoin('locations', function () {
                 this.on('location_id', '=', 'locations.id')
-            })
+            });
         condition.describe(sqlQuery);
         return sqlQuery;
     }
