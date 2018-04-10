@@ -11,13 +11,13 @@ class Searcher {
     }
 
     search(condition) {
-        let sqlQuery = this.connection.select('hospitals.id', 'hospitals.name', 'hospitals.avgRate', 'locations.lat', 'locations.long', 'locations.address')
-            .from('hospitals')
+        let sqlQuery = this.connection('hospitals')
+            .select('hospitals.id', 'hospitals.name', 'hospitals.avgRate', 'locations.lat', 'hospitals.location_id', 'locations.long', 'locations.address')
             .innerJoin('locations', function () {
-                this.on('location_id', '=', 'locations.id')
+                this.on('hospitals.location_id', '=', 'locations.id')
             });
         condition.describe(sqlQuery);
-        return sqlQuery.then(listHospitalRaw => listHospitalRaw.map(hospitalRaw => this.hospitalFactory.make(hospitalRaw)));
+        return sqlQuery.then(listHospitalRaw => listHospitalRaw.map(hospitalRaw => this.hospitalFactory.makeFromDB(hospitalRaw)));
     }
 }
 
