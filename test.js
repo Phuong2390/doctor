@@ -14,9 +14,15 @@ const KeywordSearchCondition = require('./src/search-services/keyword-search-con
 const UndeletedSearchCondition = require('./src/search-services/undeleted-search-condition');
 const Location = require('./src/location/location');
 const hospitalFactory = require('./src/hospital/hospital-factory');
+let location = new Location(21.08, 105.84);
+location.setAddress('Ha Noi');
+location.setId(1);
 
-let search = new Searcher(connection, new hospitalFactory());
+let hospital = new Hospital('Benh vien E', location);
+hospital.setId(1);
 
-let undelated = new UndeletedSearchCondition();
 
-search.search(undelated).then(console.log);
+let hospitalRepo = new HospitalRepo(connection);
+hospitalRepo.edit(hospital).then(function () {
+    console.log('Thanh cong');
+});
