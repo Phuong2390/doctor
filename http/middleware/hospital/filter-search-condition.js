@@ -1,9 +1,18 @@
 class FilterSearchCondition {
 
+    /**
+     *
+     * @param condition
+     */
     constructor(condition) {
         this.condition = condition;
     }
 
+    /**
+     *
+     * @param request
+     * @return {condition}
+     */
     refine(request) {
         let condition = this.condition;
         if(request.path === '/search/keyword') {
