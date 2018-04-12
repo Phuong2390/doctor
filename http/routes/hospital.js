@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const HospitalController = require('../http/controller/hospital-controller');
-const middleware = require('../http/middleware/hospital');
+const HospitalController = require('../controller/hospital-controller');
+const middleware = require('../middleware/hospital/index');
 
 let hospitalController = new HospitalController();
 

@@ -1,5 +1,5 @@
 const Hospital = require('./hospital');
-const Location = require('../location/location');
+const Location = require('./location/location');
 
 class HospitalFactory {
 
