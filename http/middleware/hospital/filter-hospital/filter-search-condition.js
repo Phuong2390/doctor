@@ -11,7 +11,7 @@ class FilterSearchCondition {
     /**
      *
      * @param request
-     * @return {condition}
+     * @return {*}
      */
     refine(request) {
         let condition = this.condition;
